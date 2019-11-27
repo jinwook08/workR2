@@ -11,3 +11,35 @@
 print("Hello, World!!")
 
 number <- 10 
+number2 = 100
+number3 <- number
+
+numberValue <- 1                  #camel 표기법
+str_value <- "R Language"         #snake 표기법 
+booleanvalue <- TRUE
+
+numberValue <- "R script"
+numberValue <- 1
+
+print(numberValue)
+print(str_value)
+print(booleanvalue)
+
+#print와 cat은 읽기 기능입니다. 
+
+cat("Numeric number:", numberValue,"\n" )
+cat("string:", str_value,"\n")
+cat("Boolean value:", booleanvalue,"\n")
+
+
+numberValue <- scan()       #input기능입니다.//쓰기 기능입니다.  
+cat("Numeric number:", numberValue,"\n" )
+
+
+
+
+
+
+
+
+
