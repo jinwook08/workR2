@@ -341,7 +341,30 @@ print(s)
 
 
 
+#강사님 버전
+i <- 1
+count <- 0
+linecount <- 1
+multiple3 <- NULL
+Multiple5 <- NULL
+while(i<=1000){
+  multiple3 <- i%%3
+  multiple5 <- i%%5
+  if (multiple3 == 0|multiple5==0){
+    count <- count+1
+    cat(i, ' ')
+    linecount <- linecount + 1
+    if(linecount>10){
+      linecount <- 1
+      print('\n')
+    }
+  }
+  i <- i+1   ### while문은 이게 있어야 나온다. 
+}
 
+print('\n')
+
+cat('1~1000 사이의 3의 배수와 5의 배수의 개수:',count,'\n')
 
 
 
