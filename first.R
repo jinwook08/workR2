@@ -308,3 +308,44 @@ for (i in 1:100){
   }
 }
 
+
+
+
+
+
+
+s <- 0
+cnt <- 1
+num <- 0
+for (i in 1:1000){
+  if (i %% 3 == 0|i %% 5 == 0){
+    cat(i ,' ')
+    cnt <-cnt +1
+    s=s+i
+    num <- num+1
+    if(cnt>10){
+      print('\n')
+      cnt <- 1
+      
+    }
+  }
+}
+print(num)
+print(s)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
