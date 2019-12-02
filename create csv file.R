@@ -20,3 +20,4 @@ person.info
 
 setwd("D:/workR/excel")            #경로지정
 write.csv(person.info, 'person_info.csv',row.names=F)      #csv파일을 저장하는 방법. 
+###############################3
