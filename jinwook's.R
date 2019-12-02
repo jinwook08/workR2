@@ -179,7 +179,7 @@ st1
 
 #18. 문맹률(Illiteracy)이 2.0 이상인 주의 평균 수입은 얼마인지 출력
 st1 <- data.frame(state.x77)
- subset(st1, Illiteracy>=2.0)
+st1 <- subset(st1, Illiteracy>=2.0)
 
 mean(st1$Income)
 #19.문맹률(Illiteracy)이 2.0 미만인 주와 2.0 이상인 주의 평균 수입의 차이 출력
