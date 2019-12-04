@@ -37,7 +37,7 @@ ds.new
 # 
 # st <- data.frame(state.x77)
 # 
-library(dplyr)
+
 
 
 
@@ -49,8 +49,9 @@ summary(st$Area)
 
 # (2) 특이값이 존재하는 경우 이상치를 NA로 대체하여 저장하시오.
 
-out.val <- boxplot.stats(st$Area)$out %>% boxplot.stats(st$Population)$out
-st$Area[st$Area %in% out.val] %>% st$Population[st$Population %in% out.val] <- NA
+out.val <- boxplot.stats(st$Area)$out 
+st$Area[st$Area %in% out.val] <- NA
+
 head(st)
 
 
@@ -83,32 +84,60 @@ AQ_count1
 AQ[complete.cases(AQ),]
 # (5) AQ에서 NA를 NA가 속한 열의 평균값으로 치환하여 AQ2로 저장하고, AQ2의 내용을
 # 출력하시오.		
-AQ[,c(1,2,3,4,5,6)]
-is.na(AQ)
-sum(AQ,na.rm=TRUE)
 
-apply(AQ,2,mean(AQ,na.rm=TRUE))
-
+AQ2<- colMeans(AQ,na.rm = T)
+AQ2
 # 
 # 문4)
 # R에서 제공하는 state.x77 데이터셋에 대하여 다음 문제를 해결하기 위한
 # R 코드를 작성하시오.
 # 
-# (1) state.x77 데이터셋을 Population(인구수)를 기준으로 오름차순 정렬하시오.
+# (1) state.x77 데이터셋을 Population(인구수)를 기준으로 오름차순 정렬하시오
+class(state.x77)
+st <- data.frame( state.x77)
+
+st[order(st$Population, decreasing = T),]
+
+
+
 # (2) state.x77 데이터셋을 Income(소득)을 기준으로 내림차순 정렬하시오.
+st[order(st$Income),]
 # (3) Illiteracy(문맹률)가 낮은 상위 10개 주의 이름과 문맹률을 출력하시오.	
 # 
+stt<- st[order(st$Illiteracy),]
+stt
+rownames(stt[1:10,])
+
 # 문5)
 # R에서 제공하는 mtcars 데이터셋에 대하여 다음 문제를 해결하기 위한 R
 # 코드를 작성하시오.
 # 
 # (1) mtcars 데이터셋을 gear(기어)의 개수에 따라 그룹을 나누어 mt.gear에 저장하
 # 시오.(단, split() 함수를 사용)
+class(mtcars)
+
+mt.gear<- split(mtcars, mtcars$gear)
+mt.gear
 # (2) mt.gear에서 gear(기어)의 개수가 4인 그룹의 데이터를 출력하시오.
+
+mt.gear$`4`
+
+
+
 # (3) mt.gear에서 gear(기어)의 개수가 3인 그룹과 5인 그룹의 데이터를 합쳐서
 # mt.gear.35에 저장하고 내용을 출력하시오.
+mt.gear3 <- mt.gear$'3'
+mt.gear3
+mt.gear5 <- mt.gear$'5'
+mt.gear5
+mt.gear.35 <- merge(mt.gear3,mt.gear5,all=T)
+mt.gear.35
+####앞에 행이름이 나오지않는다 
+
 # (4) mtcars 데이터셋에서 wt(중량)가 1.5~3.0 사이인 행들을 추출하여 출력하시오.
 # 
+subset(mtcars, wt<=3.0 & wt>=1.5)
+
 # 문6)
 # 다음의 문제를 해결하기 위한 R코드를 작성하시오.
 # 
@@ -126,11 +155,37 @@ apply(AQ,2,mean(AQ,na.rm=TRUE))
 #                                 "Interactive Data Analysis" ),
 #                      other.author = c( NA, "Ripley", NA, NA, NA, NA ) )
 # 
-# (1) surname과 name을 공통 열로 하여 authors와 books를 병합하여 출력하시오(두						   
-#                                                        데이터프레임에서 공통 열의 값이 일치하는 것들만 병합).
+# (1) surname과 name을 공통 열로 하여 authors와 books를 병합하여 출력하시오(두		데이터프레임에서 공통 열의 값이 일치하는 것들만 병합).
+
+authors <- data.frame( surname = c( "Twein", "Venables", "Tierney", "Ripley", "McNeil" ),nationality = c( "US", "Australia", "US", "UK", "Australia" ),retired = c( "yes", rep( "no", 4 ) ) )
+authors
+books <- data.frame( name = c( "Johns", "Venables", "Tierney", "Ripley", "Ripley", "McNeil" ),title = c( "Exploratory Data Analysis", "Modern Applied Statistics ...", "LISP-STAT","Spatial Statistics", "Stochastic Simulation","Interactive Data Analysis" ),other.author = c( NA, "Ripley", NA, NA, NA, NA ) )
+
+books
+merge(authors,books,by.authors=c('surneme'),by.books=c('name'))
+
 # (2) surname과 name을 공통 열로 하여 authors와 books를 병합하여 출력하되
 # authors의 행들이 모두 표시되도록 하시오.
+
+merge(authors,books,
+      by.books=c('name'),
+      all.authors=T)
+
 # (3) surname과 name을 공통 열로 하여 authors와 books를 병합하여 출력하되 books
 # 의 행들은 모두 표시되도록 하시오.
+merge(books,authors,
+      by.authors=c('surname'),
+      all.books=T)
+
+
 # (4) surname과 other.author를 공통 열로 하여 authors와 books를 병합하여 출력하
 # 시오.	
+
+merge(books,authors,
+      by.books=c('surname'),
+      by.authors=c('other.author'))
+
+
+
+
+
