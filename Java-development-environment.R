@@ -150,13 +150,13 @@ diff(range(weight))
 
 #histogram: 연속형 자료의 분포를 시각화 연속형 자료에서는
 # 구간을 누나고 구간에 속한 값들의 개수를 세는 방법으로 사용.
-
+mtcars
 str(cars)
 dist <- cars[,2]
 hist(dist,main='Histogram for 제동거리',xlab='제동거리'
      ,ylab='빈도수',border='black',col='green',
      las=0, breaks=5)
-
+dist
 
 #cars 라는 데이터 셋. 
 #dist 제동거리 를 가지고 연속형의 일반형을 .
