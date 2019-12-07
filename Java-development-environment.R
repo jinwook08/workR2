@@ -156,7 +156,7 @@ dist <- cars[,2]
 hist(dist,main='Histogram for 제동거리',xlab='제동거리'
      ,ylab='빈도수',border='black',col='green',
      las=0, breaks=5)
-
+dist
 
 #cars 라는 데이터 셋. 
 #dist 제동거리 를 가지고 연속형의 일반형을 .
