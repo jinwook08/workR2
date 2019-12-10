@@ -60,7 +60,7 @@ tsne <- Rtsne(ds, #차원 축소 대상 데이터셋
                               
 
 tsne <- Rtsne(ds, dim=2, perplexity=10)   ##dim 2차원으로 축소해라  ##10번 동작해라. 
-tsne
+tsne                                           #디폴트 값으로 10번 샘플링해라. 
 
 #차원축소 결과 시각화
 df.tens <- data.frame(tsne$Y)
