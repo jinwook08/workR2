@@ -69,6 +69,12 @@ ggplot(data=mtcars,mapping = aes(x= mtcars$mpg,y= mtcars$wt,col=gear,fill=gear))
 ggplot(data=mtcars,mapping = aes(y=mtcars$mpg,x=mtcars$cyl,group=cyl,col=cyl,fill=cyl))+geom_boxplot()
 
 
+#factor를 이용하여 색을 빨초파로 교환가능하다. 
+
+
+범례 <- mtcars$cyl
+ggplot(data=mtcars,mapping = aes(y=mpg,x=cyl,group=cyl,col=factor(cyl),fill=factor(cyl)))+geom_boxplot()+ggtitle('범례')
+
 
 
 # 문7) 
@@ -122,7 +128,8 @@ treemap(us,
         vColor = 'Income',
         type='value',
         title='U.S.A')
-us
+#일단 East North Central 이 미국에서 가장 인구가 많은 지역이다. 인구가 많은 지역일수록 타일의 색이 진한것을 보아 소득도 많다는것을 알 수 있다.
+
 
 # (2) 미국 50개 주에 대해 각각의 주들이 지역구분별로 묶인 트리맵을 작성하시오.
 # 또한, 타일의 면적은 HS.Grad(고등학교 졸업률), 타일의 색은 Murder(범죄률)로 나타
@@ -136,7 +143,8 @@ treemap(us,
         type='value',
         title='U.S.A')
 
-#
+#모든 타일이 거의 균일하게 보이는데 그 중에서 범죄률이 높은 지역들은 타일이 가장 작거나 특정한 주의 소속되어있는것으로 보인다. 특히 East South Central은 고등학교 졸업률과는 상관없이 전부 범죄율이 높은것을 알 수 있다. 
+
 
 
 
