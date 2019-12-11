@@ -332,6 +332,10 @@ class(gt)
 str(gt)
 mode(gt)
 
+library(ggmap)
+library(ggplot2)
+
+
 sd <- subset(gt, 시군구=='종로구')
 sd1 <- subset(gt,시군구=='중구')
 sd2 <- subset(gt,시군구=='용산구')
@@ -409,14 +413,15 @@ ggmap(map)
 
 
 map <- get_googlemap(center = cen,
-                     maptype = 'roadmap',
+                     maptype = 'roadmap',zoom = 12
+                     ,markers = gc
                      
                      )
-gmap <- ggmap(map)+
+ggmap(map)+
   geom_point(data=wwe,
              aes(x=gc.lon,y=gc.lat,size=total),
              alpha=0.5,col='red')+
-  scale_size_continuous(range=c(1.14))
+  scale_size_continuous(range=c(1,14))
 
 # 문8)
 # 7번과 동일한 자료를 이용하여 제주시 1년 교통사고 발생건수를 지도상에 원의 크기로 나타내시오.
