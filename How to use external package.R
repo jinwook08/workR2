@@ -229,7 +229,6 @@ str(GNI2014)
 head(GNI2014)
 View(GNI2014)
 GNI2014
-
 treemap(GNI2014,
         index = c('continent','iso3'),#계층구조
         vSize = 'population',           #타일크기
