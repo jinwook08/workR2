@@ -266,7 +266,35 @@ lines(year,jejjuist2+jejuist,type = 'b',lty=1,col='dodger blue',lwd=3)
 
 
 
+#####
 
+job<- read.csv('5.만1834세_비_미_취업자_취업_일자리_선택_시_고려사항_2018.csv')
+job2 <- job[2,]
+job2
+job3 <- c('적성과전공흥미에 맞는직무','임금','고용의 안정성','근로시간 및 업무량','일의 내용','가정생활 유지위한 근무여건
+','회사의 규모 인지도 등','출퇴근 편의','회사의 장래 발전 가능성','부모님의 기대')
+job3
+job4 <- c(64.3	,40.3	,31.7	,21.9	,5.8	,9.6,	3.3,	8.4,	5.5	,2.3)
+job4
+job5 <- data.frame(job3,job4)
+job5
+
+ggplot(job5,aes(x=job3,y=job4))+
+  geom_bar(stat = 'identity',width = 0.7,fill='darkgreen')+
+  labs(x='고려사항',y='%')+
+  ggtitle('제주 청년 일자리 선택시 고려사항')
+  coord_flip()
+
+  jw <- read.csv('5.1만1834세_비_미_취업자_취업희망_직종_2018.csv')
+jw2 <- jw[2,]  
+jw2
+jw3 <- c('전문가 및 관련종사자','사무종사자','서비스종사자', '판매종사자','기능 · 기계 조작종사자','단순노무종사자','그외')
+jw4 <- c(35.4	,39.9	,9.8,	4.8,	5,	2.6	,2.5)
+jw5 <- data.frame(jw3,jw4)
+ggplot(jw5,aes(x=jw3,y=jw4))+
+  geom_bar(stat = 'identity',width = 0.7,fill='darkgreen')+
+  labs(x='희망 직종',y='%')+
+  ggtitle('제주 청년 취업 희망 직종')
 
 
 
