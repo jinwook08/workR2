@@ -78,6 +78,16 @@ sejo
 sejo <- c(188,210  , 255  , 333)
 
 year
+
+ggplot(total, aes(x=year, y=sejo,color= ))+
+  geom_line()+
+  geom_line(aes(x=year,y=ulsan))+
+  geom_line(aes(x=year,y=daejeon))+
+  geom_line(aes(x=year, y=seoul))+
+  geom_line(aes(x=year,y= incheon))
+
+
+
 total<- data.frame(year,sejo,ulsan,daejeon,gwangju,incheon,daegoo,pusan,seoul)
 total
 plot(year,sejo,main='제주에서 전출자 이동지역 ',
