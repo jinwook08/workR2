@@ -2,7 +2,7 @@
 ##
 ##14일차
 ##
-##단순성형 회귀분석( simple linear regression analysis )
+##단순선형 회귀분석( simple linear regression analysis )
 ###
 ## modeling: 현실 세계에서 일어나는 현상을 수학식으로 표현하는 행위
 # 
