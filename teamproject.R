@@ -10,7 +10,7 @@ setwd('C:/Users/qlswl/Desktop/새 폴더 (3)')
 
 jj<- read.csv('1.연령별 이동건수 .csv ')
 
-jed<- subset(jj, 행정구역별 == '제주특별자치도')
+jed<- subset(jj, 행정구역별 == '제주특별자치도')V
 jed
 jed2 <- subset(jed, 항목 == '총전출')
 sj<- jed2[6:8,-1]
