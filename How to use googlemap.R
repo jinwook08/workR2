@@ -88,7 +88,7 @@ df <- data.frame(name=names,lon=gc$lon,
 df
 
 
-cen <- c(mean(df$lon), mean(df$l))
+cen <- c(mean(df$lon), mean(df$lat))
 
 map <- get_googlemap(center = cen,
                      maptype = 'roadmap',
